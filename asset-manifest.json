@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/react-projects/static/css/main.fc45b06a.css",
-    "main.js": "/react-projects/static/js/main.81b151a1.js",
+    "main.js": "/react-projects/static/js/main.0a3417b5.js",
     "static/js/453.5c718d7c.chunk.js": "/react-projects/static/js/453.5c718d7c.chunk.js",
     "index.html": "/react-projects/index.html",
     "main.fc45b06a.css.map": "/react-projects/static/css/main.fc45b06a.css.map",
-    "main.81b151a1.js.map": "/react-projects/static/js/main.81b151a1.js.map",
+    "main.0a3417b5.js.map": "/react-projects/static/js/main.0a3417b5.js.map",
     "453.5c718d7c.chunk.js.map": "/react-projects/static/js/453.5c718d7c.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.fc45b06a.css",
-    "static/js/main.81b151a1.js"
+    "static/js/main.0a3417b5.js"
   ]
 }

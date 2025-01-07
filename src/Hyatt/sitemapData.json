@@ -1,0 +1,346 @@
+[
+  {
+    "id": "4797a9cc-c202-438e-8d9a-8bfae4a49b0c",
+    "name": "/sitemap.xml",
+    "children": [
+      {
+        "id": "1eebc46e-d9aa-4c75-97b9-cb0938d5a08e",
+        "name": "/sitemap/hotels_c.xml",
+        "children": [
+          {
+            "id": "0eeb2663-dda7-4cb4-8c08-592ce70c598a",
+            "name": "/sitemap/hotels_c/en-us.xml",
+            "children": [],
+            "note": "",
+            "spreadsheetLink": "",
+            "projectLink": "",
+            "urlCount": 0,
+            "regexConditions": ""
+          },
+          {
+            "id": "b43bd079-d2c7-4a51-9df4-943c6eebd7aa",
+            "name": "/sitemap/hotels_c/es-es.xml",
+            "children": [],
+            "note": "",
+            "spreadsheetLink": "",
+            "projectLink": "",
+            "urlCount": 0,
+            "regexConditions": ""
+          },
+          {
+            "id": "1b0e68c0-ea3f-4c80-8758-b7993854f753",
+            "name": "/sitemap/hotels_c/fr-fr.xml",
+            "children": [],
+            "note": "",
+            "spreadsheetLink": "",
+            "projectLink": "",
+            "urlCount": 0,
+            "regexConditions": ""
+          },
+          {
+            "id": "b104052f-b22b-493a-8037-e368887b8be7",
+            "name": "/sitemap/hotels_c/ja-jp.xml",
+            "children": [],
+            "note": "",
+            "spreadsheetLink": "",
+            "projectLink": "",
+            "urlCount": 0,
+            "regexConditions": ""
+          },
+          {
+            "id": "b93b599c-83c1-4836-9e51-5a4cf300e8b2",
+            "name": "/sitemap/hotels_c/ko-kr.xml",
+            "children": [],
+            "note": "",
+            "spreadsheetLink": "",
+            "projectLink": "",
+            "urlCount": 0,
+            "regexConditions": ""
+          },
+          {
+            "id": "a16a18a2-e8aa-4bb1-8901-bac2ab4db909",
+            "name": "/sitemap/hotels_c/zh-cn.xml",
+            "children": [],
+            "note": "",
+            "spreadsheetLink": "",
+            "projectLink": "",
+            "urlCount": 0,
+            "regexConditions": ""
+          },
+          {
+            "id": "51759095-0097-4b66-81db-eb82964a7287",
+            "name": "/sitemap/hotels_c/zh-hk.xml",
+            "children": [],
+            "note": "",
+            "spreadsheetLink": "",
+            "projectLink": "",
+            "urlCount": 0,
+            "regexConditions": ""
+          },
+          {
+            "id": "6817ee7e-ee50-419e-83d5-cf2a6183939c",
+            "name": "/sitemap/hotels_c/pt-pt.xml",
+            "children": [],
+            "note": "",
+            "spreadsheetLink": "",
+            "projectLink": "",
+            "urlCount": 0,
+            "regexConditions": ""
+          },
+          {
+            "id": "4ce96941-bc2a-4d1b-bdf1-a1e40eacdad1",
+            "name": "/sitemap/hotels_c/ru-ru.xml",
+            "children": [],
+            "note": "",
+            "spreadsheetLink": "",
+            "projectLink": "",
+            "urlCount": 0,
+            "regexConditions": ""
+          },
+          {
+            "id": "bd36de50-2945-4aef-bd85-f0be7de28b4f",
+            "name": "/sitemap/hotels_c/other.xml",
+            "children": [],
+            "note": "",
+            "spreadsheetLink": "",
+            "projectLink": "",
+            "urlCount": 0,
+            "regexConditions": ""
+          }
+        ],
+        "note": "Canvas Pages (c for Canvas)",
+        "spreadsheetLink": "",
+        "projectLink": "https://app.botify.com/hyatt-org/hyatt.com/crawl/explorer?context=%7B%22filter%22%3A%7B%22and%22%3A%5B%7B%22and%22%3A%5B%7B%22predicate%22%3A%22eq%22%2C%22value%22%3Atrue%2C%22field%22%3A%22compliant.is_compliant%22%7D%2C%7B%22predicate%22%3A%22contains%22%2C%22value%22%3A%22www.hyatt.com%22%2C%22field%22%3A%22url%22%7D%5D%7D%2C%7B%22and%22%3A%5B%7B%22not%22%3A%7B%22predicate%22%3A%22re%22%2C%22value%22%3A%22hyatt%5C%5C.com%2F%5Ba-z%5D%7B2%7D-%5BA-Z%5D%7B2%7D%22%2C%22field%22%3A%22url%22%7D%7D%2C%7B%22predicate%22%3A%22re%22%2C%22value%22%3A%22%28%3F%3Ahyatt%5C%5C.com%2F%28hyatt-centric%7Cthompson-hotels%7Candaz%7Ccaption-by-hyatt%29%7Cwww%5C%5C.hyatt%5C%5C.com%2F%5B%5E%2F%5D%2B%2F%5Ba-z%5D%7B2%7D-%5BA-Z%5D%7B2%7D%29%22%2C%22field%22%3A%22url%22%7D%2C%7B%22not%22%3A%7B%22predicate%22%3A%22contains%22%2C%22value%22%3A%22%2Fsearch%22%2C%22field%22%3A%22url%22%7D%7D%5D%7D%5D%7D%7D&comparisonAnalysisSlug=20240831&analysisSlug=20240907&explorerFilter=%7B%22columns%22%3A%5B%22url_card%22%5D%7D",
+        "urlCount": 48530,
+        "regexConditions": "Full URL doesn't match \"hyatt\\.com/[a-z]{2}-[A-Z]{2}\" ANDFull URL matches \"(?:hyatt\\.com/(hyatt-centric|thompson-hotels|andaz|caption-by-hyatt)|www\\.hyatt\\.com/[^/]+/[a-z]{2}-[A-Z]{2})\" AND is Indexable AND Full URL contains www.hyatt.com AND Full URL doesn’t contain /search\n"
+      },
+      {
+        "id": "b70cdd44-e166-459b-a487-05d0800225ab",
+        "name": "/sitemap/hotels_o.xml ",
+        "children": [
+          {
+            "id": "3d08fdbd-3721-47f6-962f-a50493c17945",
+            "name": "/sitemap/hotels_o/en-us.xml",
+            "children": [],
+            "note": "",
+            "spreadsheetLink": "",
+            "projectLink": "",
+            "urlCount": 0,
+            "regexConditions": ""
+          },
+          {
+            "id": "bcbe2d1c-78d3-4312-9957-b184aac26bc5",
+            "name": "/sitemap/hotels_o/es-es.xml",
+            "children": [],
+            "note": "",
+            "spreadsheetLink": "",
+            "projectLink": "",
+            "urlCount": 0,
+            "regexConditions": ""
+          },
+          {
+            "id": "b0e9da47-c8ab-40d2-aaa0-12999afae274",
+            "name": "/sitemap/hotels_o/fr-fr.xml",
+            "children": [],
+            "note": "",
+            "spreadsheetLink": "",
+            "projectLink": "",
+            "urlCount": 0,
+            "regexConditions": ""
+          },
+          {
+            "id": "a12b2c0d-ce3d-43ee-a950-e9d7ad27733f",
+            "name": "/sitemap/hotels_o/ja-jp.xml",
+            "children": [],
+            "note": "",
+            "spreadsheetLink": "",
+            "projectLink": "",
+            "urlCount": 0,
+            "regexConditions": ""
+          },
+          {
+            "id": "6a58621f-cc00-4954-bba5-8c3933e36829",
+            "name": "/sitemap/hotels_o/ko-kr.xml",
+            "children": [],
+            "note": "",
+            "spreadsheetLink": "",
+            "projectLink": "",
+            "urlCount": 0,
+            "regexConditions": ""
+          },
+          {
+            "id": "83881021-50d7-4c0b-b6f3-fba9c48b4adb",
+            "name": "/sitemap/hotels_o/zh-cn.xml",
+            "children": [],
+            "note": "",
+            "spreadsheetLink": "",
+            "projectLink": "",
+            "urlCount": 0,
+            "regexConditions": ""
+          },
+          {
+            "id": "18a9cb0d-0a88-47c3-9dd7-2e8a6baff9fc",
+            "name": "/sitemap/hotels_o/zh-hk.xml",
+            "children": [],
+            "note": "",
+            "spreadsheetLink": "",
+            "projectLink": "",
+            "urlCount": 0,
+            "regexConditions": ""
+          },
+          {
+            "id": "55179eae-f6fd-4673-9b7b-1e68c36738a6",
+            "name": "/sitemap/hotels_o/pt-pt.xml",
+            "children": [],
+            "note": "",
+            "spreadsheetLink": "",
+            "projectLink": "",
+            "urlCount": 0,
+            "regexConditions": ""
+          },
+          {
+            "id": "63d9b2cb-2aec-4022-a5f5-fd7a815b2a91",
+            "name": "/sitemap/hotels_o/ru-ru.xml",
+            "children": [],
+            "note": "",
+            "spreadsheetLink": "",
+            "projectLink": "",
+            "urlCount": 0,
+            "regexConditions": ""
+          },
+          {
+            "id": "35bc25c4-07a4-4017-a8a6-736ab25fd641",
+            "name": "/sitemap/hotels_o/other.xml",
+            "children": [],
+            "note": "",
+            "spreadsheetLink": "",
+            "projectLink": "",
+            "urlCount": 0,
+            "regexConditions": ""
+          }
+        ],
+        "note": " Legacy pages (o for Old)",
+        "spreadsheetLink": "",
+        "projectLink": "https://app.botify.com/hyatt-org/hyatt.com/crawl/explorer?context=%7B%22filter%22%3A%7B%22and%22%3A%5B%7B%22and%22%3A%5B%7B%22predicate%22%3A%22eq%22%2C%22value%22%3Atrue%2C%22field%22%3A%22compliant.is_compliant%22%7D%2C%7B%22predicate%22%3A%22contains%22%2C%22value%22%3A%22www.hyatt.com%22%2C%22field%22%3A%22url%22%7D%5D%7D%2C%7B%22or%22%3A%5B%7B%22predicate%22%3A%22contains%22%2C%22value%22%3A%22%2Fhotel%2F%22%2C%22field%22%3A%22url%22%7D%2C%7B%22predicate%22%3A%22contains%22%2C%22value%22%3A%22%2Fbrands%2F%22%2C%22field%22%3A%22url%22%7D%5D%7D%5D%7D%7D&comparisonAnalysisSlug=20240831&analysisSlug=20240907&explorerFilter=%7B%22columns%22%3A%5B%22url_card%22%5D%7D",
+        "urlCount": 17641,
+        "regexConditions": "Is Indexable AND Full URL contains www.hyatt.com AND Full URL contains /hotel/ OR Full URL contains /brands/"
+      },
+      {
+        "id": "2630397a-9543-4ce5-b0da-88fba6efd45a",
+        "name": "/sitemap/browse.xml",
+        "children": [
+          {
+            "id": "955142fc-46fa-489f-8dd3-b3749c6b72a8",
+            "name": "/sitemap/browse/en-us.xml",
+            "children": [],
+            "note": "",
+            "spreadsheetLink": "",
+            "projectLink": "",
+            "urlCount": 0,
+            "regexConditions": ""
+          },
+          {
+            "id": "f6dbe154-b1b5-4131-948d-2c5379394bad",
+            "name": "/sitemap/browse/es-es.xml",
+            "children": [],
+            "note": "",
+            "spreadsheetLink": "",
+            "projectLink": "",
+            "urlCount": 0,
+            "regexConditions": ""
+          },
+          {
+            "id": "e859b8a0-a983-4598-bd3d-3ce311d55748",
+            "name": "/sitemap/browse/fr-fr.xml",
+            "children": [],
+            "note": "",
+            "spreadsheetLink": "",
+            "projectLink": "",
+            "urlCount": 0,
+            "regexConditions": ""
+          },
+          {
+            "id": "6beeb624-fcb7-4182-96b1-7fbe2db11761",
+            "name": "/sitemap/browse/ja-jp.xml",
+            "children": [],
+            "note": "",
+            "spreadsheetLink": "",
+            "projectLink": "",
+            "urlCount": 0,
+            "regexConditions": ""
+          },
+          {
+            "id": "e7d059c1-b739-4d9e-8c41-82f67f574cbd",
+            "name": "/sitemap/browse/ko-kr.xml",
+            "children": [],
+            "note": "",
+            "spreadsheetLink": "",
+            "projectLink": "",
+            "urlCount": 0,
+            "regexConditions": ""
+          },
+          {
+            "id": "a53aa418-e5c4-4da5-8f37-a9ff8ddf2a13",
+            "name": "/sitemap/browse/zh-cn.xml",
+            "children": [],
+            "note": "",
+            "spreadsheetLink": "",
+            "projectLink": "",
+            "urlCount": 0,
+            "regexConditions": ""
+          },
+          {
+            "id": "c3951736-7c79-458b-a13f-899366955272",
+            "name": "/sitemap/browse/zh-hk.xml",
+            "children": [],
+            "note": "",
+            "spreadsheetLink": "",
+            "projectLink": "",
+            "urlCount": 0,
+            "regexConditions": ""
+          },
+          {
+            "id": "ee908cea-b053-4518-a82e-f833c45668d4",
+            "name": "/sitemap/browse/pt-pt.xml",
+            "children": [],
+            "note": "",
+            "spreadsheetLink": "",
+            "projectLink": "",
+            "urlCount": 0,
+            "regexConditions": ""
+          },
+          {
+            "id": "db7ca47b-c8a7-4c1e-8ef4-b83de24a5472",
+            "name": "/sitemap/browse/ru-ru.xml",
+            "children": [],
+            "note": "",
+            "spreadsheetLink": "",
+            "projectLink": "",
+            "urlCount": 0,
+            "regexConditions": ""
+          },
+          {
+            "id": "c7724357-e5c7-4392-a02d-fd7473762b3b",
+            "name": "/sitemap/browse/other.xml",
+            "children": [],
+            "note": "",
+            "spreadsheetLink": "",
+            "projectLink": "",
+            "urlCount": 0,
+            "regexConditions": ""
+          }
+        ],
+        "note": "All other pages",
+        "spreadsheetLink": "",
+        "projectLink": "https://app.botify.com/hyatt-org/hyatt.com/crawl/explorer?context=%7B%22filter%22%3A%7B%22and%22%3A%5B%7B%22and%22%3A%5B%7B%22predicate%22%3A%22eq%22%2C%22value%22%3Atrue%2C%22field%22%3A%22compliant.is_compliant%22%7D%2C%7B%22predicate%22%3A%22contains%22%2C%22value%22%3A%22www.hyatt.com%22%2C%22field%22%3A%22url%22%7D%5D%7D%2C%7B%22and%22%3A%5B%7B%22not%22%3A%7B%22predicate%22%3A%22re%22%2C%22value%22%3A%22www%5C%5C.hyatt%5C%5C.com%2F%5B%5E%2F%5D%2B%2F%5Ba-z%5D%7B2%7D-%5BA-Z%5D%7B2%7D%22%2C%22field%22%3A%22url%22%7D%7D%2C%7B%22not%22%3A%7B%22predicate%22%3A%22contains%22%2C%22value%22%3A%22%2Fbrands%2F%22%2C%22field%22%3A%22url%22%7D%7D%2C%7B%22not%22%3A%7B%22predicate%22%3A%22contains%22%2C%22value%22%3A%22%2Fhotel%2F%22%2C%22field%22%3A%22url%22%7D%7D%2C%7B%22not%22%3A%7B%22predicate%22%3A%22re%22%2C%22value%22%3A%22%28%3F%3Ahyatt%5C%5C.com%2F%28hyatt-centric%7Cthompson-hotels%7Candaz%7Ccaption-by-hyatt%29%7Cwww%5C%5C.hyatt%5C%5C.com%2F%5B%5E%2F%5D%2B%2F%5Ba-z%5D%7B2%7D-%5BA-Z%5D%7B2%7D%29%22%2C%22field%22%3A%22url%22%7D%7D%2C%7B%22not%22%3A%7B%22predicate%22%3A%22contains%22%2C%22value%22%3A%22%2Fsearch%22%2C%22field%22%3A%22url%22%7D%7D%5D%7D%5D%7D%7D&comparisonAnalysisSlug=20240831&analysisSlug=20240907&explorerFilter=%7B%22columns%22%3A%5B%22url_card%22%5D%7D",
+        "urlCount": 2383,
+        "regexConditions": "Full URL doesn't match www\\.hyatt\\.com/[^/]+/[a-z]{2}-[A-Z]{2} AND is Indexable AND Full URL contains www.hyatt.com AND Full URL doesn't contain /hotel/ AND Full URL doesn't contain /brands/ AND Full URL doesn't match regex\"(?:hyatt\\.com/(hyatt-centric|thompson-hotels|andaz|caption-by-hyatt)|www\\.hyatt\\.com/[^/]+/[a-z]{2}-[A-Z]{2})\"  AND Full URL doesn't contain \"search\""
+      }
+    ],
+    "note": "",
+    "spreadsheetLink": "",
+    "projectLink": "https://app.botify.com/hyatt-org/hyatt.com/crawl/explorer?context=%7B%22filter%22%3A%7B%22and%22%3A%5B%7B%22and%22%3A%5B%7B%22predicate%22%3A%22eq%22%2C%22value%22%3Atrue%2C%22field%22%3A%22compliant.is_compliant%22%7D%2C%7B%22predicate%22%3A%22contains%22%2C%22value%22%3A%22www.hyatt.com%22%2C%22field%22%3A%22url%22%7D%2C%7B%22not%22%3A%7B%22predicate%22%3A%22contains%22%2C%22value%22%3A%22%2Fsearch%22%2C%22field%22%3A%22url%22%7D%7D%5D%7D%5D%7D%7D&comparisonAnalysisSlug=20240831&analysisSlug=20240907&explorerFilter=%7B%22columns%22%3A%5B%22url_card%22%5D%7D",
+    "urlCount": 0,
+    "regexConditions": "Is Indexable AND Full URL contains www.hyatt.com AND Full URL doesn't contain \"search\"\n"
+  }
+]

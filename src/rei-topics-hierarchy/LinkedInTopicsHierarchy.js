@@ -124,7 +124,7 @@ const DatasetSelector = ({ selectedDataset, datasetOptions, onChange, levelCount
         <div className="h-8 w-px bg-gray-200"></div>
 
         <div className="flex items-center gap-3">
-          <span className="px-3 py-1.5 rounded-full bg-indigo-200 text-indigo-600 font-semibold text-sm">
+          <span className="px-3 py-1.5 rounded-full bg-indigo-200 text-indigo-400 font-semibold text-sm">
             L1: {levelCounts.l1}
           </span>
           <span className="px-3 py-1.5 rounded-full bg-indigo-100 text-indigo-600 font-semibold text-sm">

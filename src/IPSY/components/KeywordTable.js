@@ -85,9 +85,22 @@ const KeywordTable = ({
   };
 
   const downloadCSV = useCallback(() => {
+    // Get headers from visible columns
+    const headers = Object.entries(visibleColumns)
+      .filter(([_, isVisible]) => isVisible)
+      .map(([column]) => column);
+
+    // Create CSV content with selected columns
     const csvContent = [
-      ['keyword', 'category', 'search volume'],
-      ...filteredData.map(item => [item.keyword, item.category, item.searchVolume])
+      headers,
+      ...filteredData.map(item => 
+        headers.map(header => {
+          if (header === 'volume') return item.searchVolume;
+          if (header === 'competitors') return item.competitors?.map(c => `${c.name}:${c.rank}`).join('; ') || '';
+          if (header === 'usages') return item.usages?.join('; ') || '';
+          return item[header];
+        })
+      )
     ].map(row => row.join(',')).join('\n');
 
     const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
@@ -101,23 +114,49 @@ const KeywordTable = ({
       link.click();
       document.body.removeChild(link);
     }
-  }, [filteredData]);
+  }, [filteredData, visibleColumns]);
 
   const copySelectedKeywords = useCallback(() => {
+    // Get headers from visible columns
+    const headers = Object.entries(visibleColumns)
+      .filter(([_, isVisible]) => isVisible)
+      .map(([column]) => column);
+
     const selectedData = filteredData
       .filter(item => selectedKeywords.has(item.keyword))
-      .map(item => `${item.keyword},${item.category},${item.searchVolume}`)
+      .map(item =>
+        headers.map(header => {
+          if (header === 'volume') return item.searchVolume;
+          if (header === 'competitors') return item.competitors?.map(c => `${c.name}:${c.rank}`).join('; ') || '';
+          if (header === 'usages') return item.usages?.join('; ') || '';
+          return item[header];
+        }).join(',')
+      )
       .join('\n');
-    navigator.clipboard.writeText(`keyword,category,search volume\n${selectedData}`);
+
+    navigator.clipboard.writeText(`${headers.join(',')}\n${selectedData}`);
     alert('Selected keywords copied to clipboard!');
-  }, [filteredData, selectedKeywords]);
+  }, [filteredData, selectedKeywords, visibleColumns]);
 
   const downloadSelectedKeywords = useCallback(() => {
+    // Get headers from visible columns
+    const headers = Object.entries(visibleColumns)
+      .filter(([_, isVisible]) => isVisible)
+      .map(([column]) => column);
+
     const selectedData = filteredData
       .filter(item => selectedKeywords.has(item.keyword))
-      .map(item => `${item.keyword},${item.category},${item.searchVolume}`)
+      .map(item =>
+        headers.map(header => {
+          if (header === 'volume') return item.searchVolume;
+          if (header === 'competitors') return item.competitors?.map(c => `${c.name}:${c.rank}`).join('; ') || '';
+          if (header === 'usages') return item.usages?.join('; ') || '';
+          return item[header];
+        }).join(',')
+      )
       .join('\n');
-    const csvContent = `keyword,category,search volume\n${selectedData}`;
+
+    const csvContent = `${headers.join(',')}\n${selectedData}`;
     const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
     const link = document.createElement('a');
     if (link.download !== undefined) {
@@ -129,7 +168,7 @@ const KeywordTable = ({
       link.click();
       document.body.removeChild(link);
     }
-  }, [filteredData, selectedKeywords]);
+  }, [filteredData, selectedKeywords, visibleColumns]);
 
   const selectedKeywordsStats = useMemo(() => {
     const selectedItems = filteredData.filter(item => selectedKeywords.has(item.keyword));

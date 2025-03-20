@@ -81,9 +81,20 @@ const TopicNode = ({
 
   const handleArticleClick = (e) => {
     e.stopPropagation();
-    if (level === 3) {
+
+    if (level === 2 || level === 3) {
+      let articlesToPass = [...(articles || [])];
+
+      if (level === 2 && children && children.length > 0) {
+        children.forEach((child) => {
+          if (child.articles && child.articles.length) {
+            articlesToPass = [...articlesToPass, ...child.articles];
+          }
+        });
+      }
+      
       onSelect(
-        articles,
+        articlesToPass,
         name.replace(/^\d+\s-\s/, ''),
         [...breadcrumb, name.replace(/^\d+\s-\s/, '')]
       );
@@ -142,8 +153,11 @@ const TopicNode = ({
             </Tooltip>
           )}
           {level === 2 && typeof articleCount === 'number' && (
-            <Tooltip text="Number of related articles">
-              <div className="flex items-center space-x-2">
+            <Tooltip text="Click to view related articles">
+              <div
+                className="flex items-center space-x-2 cursor-pointer"
+                onClick={handleArticleClick}
+              >
                 <FileText size={16} className="text-indigo-400" />
                 <span className="text-sm text-indigo-400 font-normal">
                   {articleCount}

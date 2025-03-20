@@ -8,6 +8,7 @@ import SitemapCreator from './Hyatt/SitemapCreator';
 import UnknownCrawlAnalysis from './Hyatt/UnknownCrawlAnalysis';
 import URLAnalysisDashboard from './ServiceNow/UrlStructureAnalyzer';
 import SimpleURLAnalyzer from './ServiceNow/SimpleURLAnalyzer';
+import HyattAiMvp from './Hyatt/HyattAiMvp';
 
 function App() {
   const [isAuthenticated, setAuth] = useState(false);
@@ -44,6 +45,7 @@ function App() {
             <Route path="/unknown-crawl-analysis" element={<UnknownCrawlAnalysis />} />
             <Route path="/url-analyzer" element={<URLAnalysisDashboard />} />
             <Route path="/simple-url-analyzer" element={<SimpleURLAnalyzer />} />
+            <Route path="/hyatt-ai-mvp" element={<HyattAiMvp />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </main>
@@ -106,6 +108,13 @@ function Home() {
           className="inline-block bg-green-500 text-white px-6 py-3 rounded-lg shadow-md hover:bg-green-600 transition-transform transform hover:-translate-y-1"
         >
           Simple URL Analyzer
+        </Link>
+        <br/>
+        <Link
+          to="/hyatt-ai-mvp"
+          className="inline-block bg-indigo-500 text-white px-6 py-3 rounded-lg shadow-md hover:bg-indigo-600 transition-transform transform hover:-translate-y-1"
+        >
+          Hyatt AI MVP
         </Link>
       </div>
     </div>

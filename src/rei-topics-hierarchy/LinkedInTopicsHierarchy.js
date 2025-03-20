@@ -1,7 +1,7 @@
 import React, { useState, useMemo } from 'react';
 
 // 1) Import multiple datasets
-import { december5data, december18data } from './data';
+import { december5data, december18data, jan21data, Feb19data, AllMenuData, CleanMenuData, March4data, March5data, March18datamain, March18datasecondary, March19datamain, March19datasecondary } from './data';
 
 import HierarchyTab from './components/HierarchyTab';
 import ChartsTab from './components/ChartsTab';
@@ -143,7 +143,17 @@ const LinkedInPulseTopicsHierarchy = () => {
   // 2) Keep references to your different datasets in a map:
   const datasetOptions = {
     December5: december5data,
-    December18: december18data
+    December18: december18data,
+    January21: jan21data,
+    February19: Feb19data,
+    AllMenu: AllMenuData,
+    CleanMenu: CleanMenuData,
+    March4: March4data,
+    March5: March5data,
+    March18Main: March18datamain,
+    March18Secondary: March18datasecondary,
+    March19Main: March19datamain,
+    March19Secondary: March19datasecondary,
     // Add more as needed
   };
 
@@ -302,13 +312,28 @@ const LinkedInPulseTopicsHierarchy = () => {
 
           {activeTab === 'visualization' && (
             <div className="animate-fadeIn">
-              <ChartsTab linkedInPulseTopicsData={selectedDataset} />
+              <ChartsTab 
+                linkedInPulseTopicsData={selectedDataset} 
+                datasetName={Object.keys(datasetOptions).find(
+                  key => datasetOptions[key] === selectedDataset
+                )}
+              />
             </div>
           )}
 
           {activeTab === 'collapsible-tree' && (
             <div className="animate-fadeIn">
-              <CollapsibleTreeTab linkedInPulseTopicsData={selectedDataset} />
+              <CollapsibleTreeTab 
+                linkedInPulseTopicsData={selectedDataset} 
+                datasetName={Object.keys(datasetOptions).find(
+                  key => datasetOptions[key] === selectedDataset
+                )}
+                allDatasets={datasetOptions}
+                datasetOptions={Object.keys(datasetOptions).reduce((acc, key) => {
+                  acc[key] = key.replace(/([A-Z])/g, ' $1').trim();
+                  return acc;
+                }, {})}
+              />
             </div>
           )}
         </div>

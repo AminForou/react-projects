@@ -1,4 +1,3 @@
-
 // Count leaf articles to avoid double counting
 function countLeafArticles(node) {
   if (!node.children || node.children.length === 0) {
@@ -177,6 +176,82 @@ export function getL1L3StackedData(root) {
         label: '21+ articles',
         data: bucket21plusArr,
         backgroundColor: '#6366F1'
+      }
+    ]
+  };
+}
+
+export function getL2BarChartData(topicsData) {
+  // Initialize an object to store L2 topic counts and their parent L1 topics
+  const l2Info = {};
+  
+  // Function to traverse the tree and collect L2 topics
+  const traverseTree = (node, parentL1 = null) => {
+    if (node.level === 1) {
+      // This is an L1 node, remember it for its children
+      parentL1 = node.name.replace(/^\d+\s-\s/, '');
+    } else if (node.level === 2 && parentL1) {
+      // Extract the name (removing any numbering if present)
+      const name = node.name.replace(/^\d+\s-\s/, '');
+      
+      // Create a combined label with L1/L2 format
+      const combinedLabel = `${parentL1}/ ${name}`;
+      
+      // If this L2 doesn't exist yet, initialize it
+      if (!l2Info[combinedLabel]) {
+        l2Info[combinedLabel] = {
+          count: 0,
+          parentL1: parentL1,
+          l2Name: name
+        };
+      }
+      
+      // Count the articles for this L2 topic
+      l2Info[combinedLabel].count += (node.articleCount || 0);
+    }
+    
+    // Recursively process children
+    if (node.children && node.children.length > 0) {
+      node.children.forEach(child => traverseTree(child, parentL1));
+    }
+  };
+  
+  // Start traversal from the root
+  traverseTree(topicsData);
+  
+  // Convert the info object to arrays for Chart.js
+  const labels = Object.keys(l2Info);
+  const data = labels.map(label => l2Info[label].count);
+  const parentL1s = labels.map(label => l2Info[label].parentL1);
+  const l2Names = labels.map(label => l2Info[label].l2Name);
+  
+  // Sort by count (descending)
+  const combined = labels.map((label, i) => ({ 
+    label, 
+    value: data[i],
+    parentL1: parentL1s[i],
+    l2Name: l2Names[i]
+  }));
+  combined.sort((a, b) => b.value - a.value);
+  
+  // Extract sorted labels and data
+  const sortedLabels = combined.map(item => item.label);
+  const sortedData = combined.map(item => item.value);
+  const sortedParentL1s = combined.map(item => item.parentL1);
+  const sortedL2Names = combined.map(item => item.l2Name);
+  
+  return {
+    labels: sortedLabels,
+    datasets: [
+      {
+        label: 'Article Count',
+        data: sortedData,
+        backgroundColor: '#60A5FA', // A blue color
+        borderColor: '#2563EB',
+        borderWidth: 1,
+        // Store parent L1 info for each data point
+        parentL1s: sortedParentL1s,
+        l2Names: sortedL2Names
       }
     ]
   };

@@ -4,7 +4,8 @@ import { Bar } from 'react-chartjs-2';
 import {
   getL1BarChartData,
   getL1L2StackedData,
-  getL1L3StackedData
+  getL1L3StackedData,
+  getL2BarChartData
 } from './chartHelpers';
 import {
   Chart as ChartJS,
@@ -122,6 +123,74 @@ const stackedChartOptions = {
   }
 };
 
+// Update the barChartOptions for L2 chart to include custom tooltip
+const l2BarChartOptions = {
+  ...barChartOptions,
+  plugins: {
+    ...barChartOptions.plugins,
+    tooltip: {
+      ...barChartOptions.plugins.tooltip,
+      callbacks: {
+        title: function(context) {
+          const label = context[0].label;
+          // Split the label at the slash
+          const parts = label.split('/');
+          if (parts.length === 2) {
+            // Return with the first part in bold
+            return `${parts[0]}/${parts[1]}`;
+          }
+          return label;
+        },
+        label: function(context) {
+          return `Article Count: ${context.parsed.y}`;
+        },
+        afterLabel: function(context) {
+          // Get the parent L1 from the dataset's custom property
+          const parentL1 = context.dataset.parentL1s?.[context.dataIndex];
+          const l2Name = context.dataset.l2Names?.[context.dataIndex];
+          
+          if (parentL1 && l2Name) {
+            return [
+              `Primary Category: ${parentL1}`,
+              `Secondary Topic: ${l2Name}`
+            ];
+          }
+          return '';
+        }
+      }
+    }
+  },
+  scales: {
+    ...barChartOptions.scales,
+    x: {
+      ...barChartOptions.scales.x,
+      ticks: {
+        ...barChartOptions.scales.x.ticks,
+        // Custom rendering of x-axis labels
+        callback: function(value, index) {
+          const label = this.getLabelForValue(value);
+          // Split the label at the slash
+          const parts = label.split('/');
+          
+          if (parts.length === 2) {
+            // If the combined label is too long, truncate the second part
+            if (label.length > 25) {
+              return `${parts[0]}/${parts[1].substring(0, 15)}...`;
+            }
+            return label;
+          }
+          
+          // Fallback for labels that don't match the expected format
+          if (label.length > 25) {
+            return label.substring(0, 22) + '...';
+          }
+          return label;
+        }
+      }
+    }
+  }
+};
+
 // A small layout for each chart block
 const ChartCard = ({ title, children, extraControls }) => (
   <div className="bg-white rounded-xl shadow-lg p-6 mb-8">
@@ -152,11 +221,15 @@ const parentCategoryArticles = {
   Travel: 24
 };
 
-const ChartsTab = ({ linkedInPulseTopicsData }) => {
+const ChartsTab = ({ linkedInPulseTopicsData, datasetName = "Current" }) => {
+  // Format the dataset name for display (replace camelCase with spaces)
+  const formattedDatasetName = datasetName.replace(/([A-Z])/g, ' $1').trim();
+  
   // Create the basic data sets from the selected dataset
   const l1BarDataOriginal = getL1BarChartData(linkedInPulseTopicsData);
   const l2StackedData = getL1L2StackedData(linkedInPulseTopicsData);
   const l3StackedData = getL1L3StackedData(linkedInPulseTopicsData);
+  const l2BarData = getL2BarChartData(linkedInPulseTopicsData);
 
   // If the user has "december18" dataset selected, we show an extra toggle
   const isDecember18 =
@@ -198,7 +271,7 @@ const ChartsTab = ({ linkedInPulseTopicsData }) => {
     <div className="max-w-7xl mx-auto p-6">
       <div className="mb-8">
         <h1 className="text-3xl font-bold text-gray-800 text-center mb-2">
-          Topic Distribution Analysis
+          Topic Distribution Analysis <span className="text-indigo-600">({formattedDatasetName})</span>
         </h1>
         <p className="text-gray-600 text-center max-w-2xl mx-auto">
           Explore the distribution of articles across different topic levels.
@@ -236,6 +309,12 @@ const ChartsTab = ({ linkedInPulseTopicsData }) => {
         >
           <div className="absolute inset-0">
             <Bar data={l1BarData} options={barChartOptions} />
+          </div>
+        </ChartCard>
+
+        <ChartCard title="Secondary Topic Distribution">
+          <div className="absolute inset-0">
+            <Bar data={l2BarData} options={l2BarChartOptions} />
           </div>
         </ChartCard>
 
